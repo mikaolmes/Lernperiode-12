@@ -2,6 +2,8 @@
 
 07.11.2025 bis 19.12.2025
 
+---
+
 ## Grob-Planung
 
 ### Technologien
@@ -24,10 +26,14 @@ Ich habe meine Firma nach den Technologien gefragt, die ich in meinem Praktikums
 - Go
 - Wails
 
-Für mein Projekt plane ich, TypeScript, Next.js und Tailwind CSS für das Frontend zu verwenden, bzw. zu erlernen. Im Backend möchte ich ebenfalls TypeScript benutzen, um bei einer Sprache zu bleiben. Als Datenbank werde ich PocketBase verwenden, da modern ist und auf SQLite aufbaut, das wir schon mal in der Schule angeschaut hatten, zudem ist es angeblich gut geeignet für kleine bis mittelgrosse Projekte. Zudem bietet PocketBase ein integriertes API und Admin-Interface, wodurch ich mich besser auf das Zusammenspiel von Frontend und Backend konzentrieren kann, anstatt auf komplexe Serverkonfigurationen. (89 Wörter)
+Für mein Projekt plane ich, TypeScript, Next.js und Tailwind CSS für das Frontend zu erlernen. Im Backend möchte ich ebenfalls TypeScript einsetzen, um bei einer Sprache zu bleiben. Als Datenbank werde ich PocketBase verwenden, da modern ist und auf SQLite aufbaut, das wir schon mal in der Schule angeschaut hatten, zudem ist es angeblich gut geeignet für kleine bis mittelgrosse Projekte. Zudem bietet PocketBase ein integriertes API und Admin-Interface, wodurch ich mich besser auf das Zusammenspiel von Frontend und Backend konzentrieren kann, anstatt auf komplexe Serverkonfigurationen. (89 Wörter)
+
+---
 
 ### Grobe Beschreibung des Projektes
-Ich möchte eine Mini-Blog-Plattform entwickeln, auf der Benutzer Beiträge erstellen, lesen, bearbeiten und löschen können. Jeder Beitrag soll einen Titel, Text und ein Erstellungsdatum enthalten. Das Frontend werde ich mit Next.js, TypeScript und Tailwind CSS umsetzen, und für die Speicherung von Daten werde ich PocketBase verwenden. Mein Ziel ist es, eine moderne Web-App zu entwickeln und dabei den Umgang mit diesen Technologien zu üben.
+Ich möchte eine Mini-Blog-Plattform entwickeln, auf der Benutzer Beiträge erstellen, lesen, bearbeiten und löschen können. Jeder Beitrag soll einen Titel, Text und ein Erstellungsdatum enthalten. Das Frontend werde ich mit Next.js, TypeScript und Tailwind CSS umsetzen, und für die Speicherung von Daten werde ich PocketBase verwenden. Mein Ziel ist es, eine moderne Web-App zu entwickeln und dabei den Umgang mit diesen Technologien zu üben. (64 Wörter)
+
+---
 
 ### User Stories
 1. Als Benutzer möchte ich Beiträge erstellen können, damit ich meine Ideen auf der Plattform teilen kann.
