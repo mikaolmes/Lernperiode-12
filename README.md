@@ -50,4 +50,4 @@ Ich möchte eine Mini-Blog-Plattform entwickeln, auf der Benutzer Beiträge erst
 - [ ] Verbindung zu einer PocketBase Datenbank herstellen
 - [ ] Fehler- und Erfolgmeldungen nach Erstellen eines Beitrags anzeigen lassen
 
-Heute habe ich zuerst ein wenig geschaut wie TypeScript so funktioniert. Dazu habe ich diese Dokumentation gelesen: https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html diese hat mir geholfen die ersten Schritte zu machen. Ich habe einwenig in einem Test-Projekt herumgespielt. 
+
