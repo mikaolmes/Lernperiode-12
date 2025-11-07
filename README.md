@@ -43,3 +43,9 @@ Ich möchte eine Mini-Blog-Plattform entwickeln, auf der Benutzer Beiträge erst
 5. Als Benutzer möchte ich Beiträge löschen können, damit ich nicht mehr relevante Inhalte entfernen kann.
 6. Als Benutzer möchte ich mich anmelden und authentifizieren können, damit nur registrierte Nutzer eigene Beiträge erstellen oder bearbeiten können.
 7. Als Besucher möchte ich ein modernes, responsives Design haben, damit die Plattform auf allen Geräte gut funktioniert.
+
+## 07.11.2025
+- [ ] Titelseite für Titel und Text mit Tailwind CSS gestaltetn
+- [ ] Erste Eignabelogik in TypeScript umsetzten
+- [ ] Verbindung zu einer PocketBase Datenbank herstellen
+- [ ] Fehler- und Erfolgmeldungen nach Erstellen eines Beitrags anzeigen lassen
