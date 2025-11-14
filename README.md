@@ -55,7 +55,16 @@ Heute habe ich mich zuerst ein wenig mit TypeScript beschäftigt. Dazu habe ich 
 
 
 ## 14.11.2025
-- [ ] Titelseite für Titel und Text mit Tailwind CSS gestaltetn
+- [X] Titelseite für Titel und Text mit Tailwind CSS gestaltetn
 - [ ] Erste Eignabelogik in TypeScript umsetzten
 - [ ] Verbindung zu einer PocketBase Datenbank herstellen
 - [ ] Fehler- und Erfolgmeldungen nach Erstellen eines Beitrags anzeigen lassen
+
+Heute habe ich mein Projekt erstellt, bedeutet die ersten Dateien erstellt, ich habe die Titelseite erstellt. Doch davor hatte ich zuerst eine Datenbank mithilfe Pocetbase erstellt. Dies war auch ziemlich Zeitaufwendig, da ich ein Problem mit der API Rule hatte, und zwar mit der Create Rule, schnlussendlich hat nichts funktioniert und ich habe es auf der Standart Einstellunge gelassen. (59 Wörter)
+
+##21.11.2025
+ - [ ] Als Benutzer möchte ich auf der Blogging-Platform registieren können, damit ich einen Account habe mit dem ich meine Sachen posten kann.
+ - [ ] Als Bentutzer möchte ich immer Informiert werden wenn ich einen Fehler bei etwas gemacht habe, damit ich das Rückgägnig machen kann, sodass es am schluss funktioniert.
+ - [ ] Als Benutzer möchte ich mich auf der Platform anmelden können, damit ich eine Übersicht habe was ich gelikt, gepostet oder angesehen habe.
+ - [ ] Als Benjtzer möchte ich eine Datenban im Hintergrund haben, der meinen Account nach dem registrieren speichert, damit ich mich später wieder anmelden kann.
+
