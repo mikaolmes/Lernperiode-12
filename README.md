@@ -52,3 +52,10 @@ Ich möchte eine Mini-Blog-Plattform entwickeln, auf der Benutzer Beiträge erst
 
 
 Heute habe ich mich zuerst ein wenig mit TypeScript beschäftigt. Dazu habe ich die Dokumentation gelesen: https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html. Sie hat mir geholfen, die ersten Schritte zu machen, und ich habe anschließend in einem Testprojekt etwas herumgespielt. Danach habe ich versucht, meine Datenbank zu starten, um anschließend das Projekt zu starten. Dabei habe ich jedoch Probleme: Auf der Webseite steht, dass ich eine URL öffnen können soll, aber das funktioniert bei mir nicht. Ich muss noch herausfinden, wie ich das reparieren kann.
+
+
+## 14.11.2025
+- [ ] Titelseite für Titel und Text mit Tailwind CSS gestaltetn
+- [ ] Erste Eignabelogik in TypeScript umsetzten
+- [ ] Verbindung zu einer PocketBase Datenbank herstellen
+- [ ] Fehler- und Erfolgmeldungen nach Erstellen eines Beitrags anzeigen lassen
