@@ -62,9 +62,10 @@ Heute habe ich mich zuerst ein wenig mit TypeScript beschäftigt. Dazu habe ich 
 
 Heute habe ich mein Projekt erstellt, bedeutet die ersten Dateien erstellt, ich habe die Titelseite erstellt. Doch davor hatte ich zuerst eine Datenbank mithilfe Pocetbase erstellt. Dies war auch ziemlich Zeitaufwendig, da ich ein Problem mit der API Rule hatte, und zwar mit der Create Rule, schnlussendlich hat nichts funktioniert und ich habe es auf der Standart Einstellunge gelassen. (59 Wörter)
 
-##21.11.2025
- - [ ] Als Benutzer möchte ich auf der Blogging-Platform registieren können, damit ich einen Account habe mit dem ich meine Sachen posten kann.
+## 21.11.2025
+ - [X] Als Benutzer möchte ich auf der Blogging-Platform registieren können, damit ich einen Account habe mit dem ich meine Sachen posten kann.
  - [ ] Als Bentutzer möchte ich immer Informiert werden wenn ich einen Fehler bei etwas gemacht habe, damit ich das Rückgägnig machen kann, sodass es am schluss funktioniert.
- - [ ] Als Benutzer möchte ich mich auf der Platform anmelden können, damit ich eine Übersicht habe was ich gelikt, gepostet oder angesehen habe.
+ - [X] Als Benutzer möchte ich mich auf der Platform anmelden können, damit ich eine Übersicht habe was ich gelikt, gepostet oder angesehen habe.
  - [ ] Als Benjtzer möchte ich eine Datenban im Hintergrund haben, der meinen Account nach dem registrieren speichert, damit ich mich später wieder anmelden kann.
 
+Heute habe ich vor dem Unterricht die Login bzw Regristrierung vorgenommen, was soweit funktioniert, es hat noch ein paar macken, denn es zeigt keine Fehlermeldung an, dass muss ich noch ändern, doch das sollte hoffentlich schnell gehen. 
