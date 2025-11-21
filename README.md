@@ -66,6 +66,6 @@ Heute habe ich mein Projekt erstellt, bedeutet die ersten Dateien erstellt, ich 
  - [X] Als Benutzer möchte ich auf der Blogging-Platform registieren können, damit ich einen Account habe mit dem ich meine Sachen posten kann.
  - [X] Als Bentutzer möchte ich immer Informiert werden wenn ich einen Fehler bei etwas gemacht habe, damit ich das Rückgägnig machen kann, sodass es am schluss funktioniert.
  - [X] Als Benutzer möchte ich mich auf der Platform anmelden können, damit ich eine Übersicht habe was ich gelikt, gepostet oder angesehen habe.
- - [ ] Als Benjtzer möchte ich eine Datenban im Hintergrund haben, der meinen Account nach dem registrieren speichert, damit ich mich später wieder anmelden kann.
+ - [X] Als Benjtzer möchte ich eine Datenban im Hintergrund haben, der meinen Account nach dem registrieren speichert, damit ich mich später wieder anmelden kann.
 
 Heute habe ich vor dem Unterricht die Login bzw Regristrierung vorgenommen, was soweit funktioniert, es hat noch ein paar macken, denn es zeigt keine Fehlermeldung an, dass muss ich noch ändern, doch das sollte hoffentlich schnell gehen. 
