@@ -23,7 +23,7 @@ export default function Home() {
     };
 
     checkAuth();
-  }, []); // Leeres Array = läuft nur einmal beim Mount
+  }, []);
 
   const loadPosts = async () => {
     try {
@@ -34,7 +34,6 @@ export default function Home() {
       setPosts(records.items);
     } catch (error: any) {
       console.error('Error loading posts:', error);
-      // Wenn nicht authentifiziert, zur Login-Seite
       if (error.status === 403 || error.status === 401) {
         pb.authStore.clear();
         setIsLoggedIn(false);
@@ -47,7 +46,7 @@ export default function Home() {
     router.push('/auth');
   };
 
-  // Loading State
+  // Loading
   if (isLoading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
@@ -64,12 +63,9 @@ export default function Home() {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100">
         <div className="text-center bg-white p-12 rounded-2xl shadow-xl">
-          <h1 className="text-4xl font-bold mb-4 text-gray-800">Willkommen zum Blog</h1>
-          <p className="text-gray-600 mb-8">Melde dich an um Beiträge zu sehen und zu erstellen</p>
-          <Link 
-            href="/auth" 
-            className="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition inline-block"
-          >
+          <h1 className="text-4xl font-bold mb-4">Willkommen zum Blog</h1>
+          <p className="text-gray-600 mb-8">Melde dich an um Beiträge zu sehen</p>
+          <Link href="/auth" className="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 inline-block">
             Anmelden
           </Link>
         </div>
@@ -77,31 +73,26 @@ export default function Home() {
     );
   }
 
-  // Eingeloggt - Zeige Blog
+  // Blog
   return (
     <div className="min-h-screen bg-gray-50">
+      
       {/* Header */}
       <header className="bg-white shadow-sm">
         <div className="max-w-4xl mx-auto px-4 py-6 flex justify-between items-center">
-          <h1 className="text-3xl font-bold text-gray-800">Mein Blog</h1>
+          <h1 className="text-3xl font-bold">Mein Blog</h1>
           <div className="flex gap-3">
-            <Link 
-              href="/posts/new" 
-              className="bg-blue-600 text-white px-5 py-2 rounded-lg font-medium hover:bg-blue-700 transition"
-            >
+            <Link href="/posts/new" className="bg-blue-600 text-white px-5 py-2 rounded-lg hover:bg-blue-700">
               + Neuer Beitrag
             </Link>
-            <button 
-              onClick={handleLogout} 
-              className="bg-gray-200 text-gray-700 px-5 py-2 rounded-lg font-medium hover:bg-gray-300 transition"
-            >
+            <button onClick={handleLogout} className="bg-gray-200 px-5 py-2 rounded-lg hover:bg-gray-300">
               Logout
             </button>
           </div>
         </div>
       </header>
 
-      {/* Main Content */}
+      {/* Content */}
       <main className="max-w-4xl mx-auto px-4 py-8">
         {posts.length === 0 ? (
           <div className="text-center py-16">
@@ -109,12 +100,9 @@ export default function Home() {
               <svg className="w-24 h-24 mx-auto text-gray-300 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
               </svg>
-              <h2 className="text-2xl font-bold text-gray-700 mb-2">Noch keine Beiträge</h2>
+              <h2 className="text-2xl font-bold mb-2">Noch keine Beiträge</h2>
               <p className="text-gray-500 mb-6">Erstelle deinen ersten Blogpost!</p>
-              <Link 
-                href="/posts/new" 
-                className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition"
-              >
+              <Link href="/posts/new" className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700">
                 Ersten Beitrag erstellen
               </Link>
             </div>
@@ -123,8 +111,8 @@ export default function Home() {
           <div className="space-y-6">
             {posts.map((post) => (
               <Link href={`/posts/${post.id}`} key={post.id}>
-                <article className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition cursor-pointer border border-gray-100">
-                  <h2 className="text-2xl font-bold mb-2 text-gray-800 hover:text-blue-600 transition">
+                <article className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md border cursor-pointer">
+                  <h2 className="text-2xl font-bold mb-2 hover:text-blue-600">
                     {post.title}
                   </h2>
                   <p className="text-gray-500 text-sm mb-3">
