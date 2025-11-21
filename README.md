@@ -64,7 +64,7 @@ Heute habe ich mein Projekt erstellt, bedeutet die ersten Dateien erstellt, ich 
 
 ## 21.11.2025
  - [X] Als Benutzer möchte ich auf der Blogging-Platform registieren können, damit ich einen Account habe mit dem ich meine Sachen posten kann.
- - [ ] Als Bentutzer möchte ich immer Informiert werden wenn ich einen Fehler bei etwas gemacht habe, damit ich das Rückgägnig machen kann, sodass es am schluss funktioniert.
+ - [X] Als Bentutzer möchte ich immer Informiert werden wenn ich einen Fehler bei etwas gemacht habe, damit ich das Rückgägnig machen kann, sodass es am schluss funktioniert.
  - [X] Als Benutzer möchte ich mich auf der Platform anmelden können, damit ich eine Übersicht habe was ich gelikt, gepostet oder angesehen habe.
  - [ ] Als Benjtzer möchte ich eine Datenban im Hintergrund haben, der meinen Account nach dem registrieren speichert, damit ich mich später wieder anmelden kann.
 
