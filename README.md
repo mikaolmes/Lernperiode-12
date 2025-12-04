@@ -81,3 +81,6 @@ Heute habe ich vor dem Unterricht die Login bzw Regristrierung vorgenommen, was 
 - [ ] Als Benutzer möchte ich einen Beitrag als "Gefällt mir nicht" makieren können, damit mir die App diese Beiträge nicht mehr anzeigt, nach dem wiederladen der Webapp.
 - [ ] Als Benutzer möchte ich eine Zahl sehen wie viele Leute diesen Artikel schon "geliked" haben oder "disliked" haben, damit ich mir eine Meinung bilden kann.
 - [ ] Als Benutzer möchte ich in der Lage sein die Zahl der Likes und Dislikes verstecken zu können, damit niemand ausser mir sieht wie viele den Beitrag mögen oder nicht.
+
+## 12.12.2025
+- [ ] Als Benutzer möchte ich schönere Fehlermeldungen haben, damit die WebApp ein wenig schöner aussieht.
