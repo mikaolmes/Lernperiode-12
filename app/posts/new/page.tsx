@@ -1,138 +1,151 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import Link from 'next/link';
-import { pb, Post } from '@/lib/pocketbase';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
+import { pb } from '@/lib/pocketbase';
 
-export default function Home() {
-  const [posts, setPosts] = useState<Post[]>([]);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
+export default function NewPostPage() {
+  const [title, setTitle] = useState('');
+  const [content, setContent] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState('');
   const router = useRouter();
 
   useEffect(() => {
-    const checkAuth = async () => {
-      const loggedIn = pb.authStore.isValid;
-      setIsLoggedIn(loggedIn);
-      
-      if (loggedIn) {
-        await loadPosts();
-      }
-      setIsLoading(false);
-    };
+    // Redirect if not authenticated
+    if (!pb.authStore.isValid) {
+      router.push('/auth');
+    }
+  }, [router]);
 
-    checkAuth();
-  }, []);
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setError('');
+    setIsSubmitting(true);
 
-  const loadPosts = async () => {
     try {
-      const records = await pb.collection('posts').getList<Post>(1, 50, {
-        sort: '-created',
-        expand: 'author',
-      });
-      setPosts(records.items);
-    } catch (error: any) {
-      console.error('Error loading posts:', error);
-      if (error.status === 403 || error.status === 401) {
-        pb.authStore.clear();
-        setIsLoggedIn(false);
+      const userId = pb.authStore.model?.id;
+      if (!userId) {
+        throw new Error('Nicht angemeldet');
       }
+
+      await pb.collection('posts').create({
+        title: title.trim(),
+        content: content.trim(),
+        author: userId,
+      });
+
+      // Redirect to home page after successful creation
+      router.push('/');
+    } catch (err) {
+      console.error('Error creating post:', err);
+      setError('Fehler beim Erstellen des Beitrags. Bitte versuche es erneut.');
+      setIsSubmitting(false);
     }
   };
 
-  const handleLogout = () => {
-    pb.authStore.clear();
-    router.push('/auth');
-  };
-
-  // Loading
-  if (isLoading) {
+  if (!pb.authStore.isValid) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500 mx-auto mb-4"></div>
-          <p className="text-gray-600">Lädt...</p>
-        </div>
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500"></div>
       </div>
     );
   }
 
-  // Nicht eingeloggt
-  if (!isLoggedIn) {
-    return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100">
-        <div className="text-center bg-white p-12 rounded-2xl shadow-xl">
-          <h1 className="text-4xl font-bold mb-4">Willkommen zum Blog</h1>
-          <p className="text-gray-600 mb-8">Melde dich an um Beiträge zu sehen</p>
-          <Link href="/auth" className="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 inline-block">
-            Anmelden
-          </Link>
-        </div>
-      </div>
-    );
-  }
-
-  // Blog
   return (
     <div className="min-h-screen bg-gray-50">
-      
       {/* Header */}
       <header className="bg-white shadow-sm">
-        <div className="max-w-4xl mx-auto px-4 py-6 flex justify-between items-center">
-          <h1 className="text-3xl font-bold">Mein Blog</h1>
-          <div className="flex gap-3">
-            <Link href="/posts/new" className="bg-blue-600 text-white px-5 py-2 rounded-lg hover:bg-blue-700">
-              + Neuer Beitrag
-            </Link>
-            <button onClick={handleLogout} className="bg-gray-200 px-5 py-2 rounded-lg hover:bg-gray-300">
-              Logout
-            </button>
-          </div>
+        <div className="max-w-4xl mx-auto px-4 py-6">
+          <Link href="/" className="text-blue-600 hover:text-blue-800 font-medium">
+            ← Zurück zur Übersicht
+          </Link>
         </div>
       </header>
 
       {/* Content */}
       <main className="max-w-4xl mx-auto px-4 py-8">
-        {posts.length === 0 ? (
-          <div className="text-center py-16">
-            <div className="bg-white p-12 rounded-2xl shadow-sm">
-              <svg className="w-24 h-24 mx-auto text-gray-300 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-              </svg>
-              <h2 className="text-2xl font-bold mb-2">Noch keine Beiträge</h2>
-              <p className="text-gray-500 mb-6">Erstelle deinen ersten Blogpost!</p>
-              <Link href="/posts/new" className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700">
-                Ersten Beitrag erstellen
+        <div className="bg-white p-8 rounded-xl shadow-sm">
+          <h1 className="text-3xl font-bold mb-6">Neuen Beitrag erstellen</h1>
+
+          {error && (
+            <div className="mb-6 p-4 bg-red-50 border border-red-200 text-red-700 rounded-lg">
+              ⚠️ {error}
+            </div>
+          )}
+
+          <form onSubmit={handleSubmit} className="space-y-6">
+            {/* Title */}
+            <div>
+              <label htmlFor="title" className="block text-sm font-medium text-gray-700 mb-2">
+                Titel *
+              </label>
+              <input
+                id="title"
+                type="text"
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+                placeholder="Gib deinem Beitrag einen aussagekräftigen Titel"
+                className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+                required
+                maxLength={200}
+                disabled={isSubmitting}
+              />
+              <p className="text-xs text-gray-500 mt-1">
+                {title.length}/200 Zeichen
+              </p>
+            </div>
+
+            {/* Content */}
+            <div>
+              <label htmlFor="content" className="block text-sm font-medium text-gray-700 mb-2">
+                Inhalt *
+              </label>
+              <textarea
+                id="content"
+                value={content}
+                onChange={(e) => setContent(e.target.value)}
+                placeholder="Teile deine Gedanken und Ideen..."
+                className="w-full p-3 border rounded-lg h-64 focus:ring-2 focus:ring-blue-500 outline-none resize-y"
+                required
+                minLength={10}
+                disabled={isSubmitting}
+              />
+              <p className="text-xs text-gray-500 mt-1">
+                Mindestens 10 Zeichen erforderlich
+              </p>
+            </div>
+
+            {/* Buttons */}
+            <div className="flex gap-4 pt-4">
+              <button
+                type="submit"
+                disabled={isSubmitting || !title.trim() || !content.trim() || content.trim().length < 10}
+                className="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition disabled:bg-gray-400 disabled:cursor-not-allowed"
+              >
+                {isSubmitting ? (
+                  <span className="flex items-center">
+                    <svg className="animate-spin h-5 w-5 mr-2" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+                    </svg>
+                    Erstellt...
+                  </span>
+                ) : (
+                  '✓ Beitrag veröffentlichen'
+                )}
+              </button>
+              
+              <Link
+                href="/"
+                className="bg-gray-200 text-gray-700 px-8 py-3 rounded-lg font-semibold hover:bg-gray-300 transition inline-block text-center"
+              >
+                Abbrechen
               </Link>
             </div>
-          </div>
-        ) : (
-          <div className="space-y-6">
-            {posts.map((post) => (
-              <Link href={`/posts/${post.id}`} key={post.id}>
-                <article className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md border cursor-pointer">
-                  <h2 className="text-2xl font-bold mb-2 hover:text-blue-600">
-                    {post.title}
-                  </h2>
-                  <p className="text-gray-500 text-sm mb-3">
-                    {new Date(post.created).toLocaleDateString('de-DE', {
-                      year: 'numeric',
-                      month: 'long',
-                      day: 'numeric'
-                    })}
-                  </p>
-                  <p className="text-gray-700 line-clamp-3">
-                    {post.content}
-                  </p>
-                  <span className="text-blue-600 text-sm font-medium mt-3 inline-block">
-                    Weiterlesen →
-                  </span>
-                </article>
-              </Link>
-            ))}
-          </div>
-        )}
+          </form>
+        </div>
       </main>
     </div>
   );

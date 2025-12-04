@@ -50,24 +50,25 @@ export default function AuthPage() {
         await pb.collection('users').authWithPassword(email, password);
         router.push('/');
       }
-    } catch (err: any) {
+    } catch (err) {
       console.error('Auth error:', err);
       
       // Bessere Fehlermeldungen
-      if (err.status === 400) {
-        if (err.data?.data?.email) {
+      const error = err as { status?: number; data?: { data?: { email?: string; password?: string } }; message?: string };
+      if (error.status === 400) {
+        if (error.data?.data?.email) {
           setError('Diese E-Mail-Adresse wird bereits verwendet!');
-        } else if (err.data?.data?.password) {
+        } else if (error.data?.data?.password) {
           setError('Das Passwort ist ungültig!');
         } else if (isLogin) {
           setError('Falsche E-Mail-Adresse oder Passwort!');
         } else {
           setError('Registrierung fehlgeschlagen. Bitte überprüfe deine Eingaben.');
         }
-      } else if (err.status === 0) {
+      } else if (error.status === 0) {
         setError('Verbindung zum Server fehlgeschlagen. Stelle sicher, dass PocketBase läuft!');
       } else {
-        setError('Ein Fehler ist aufgetreten: ' + (err.message || 'Unbekannter Fehler'));
+        setError('Ein Fehler ist aufgetreten: ' + (error.message || 'Unbekannter Fehler'));
       }
     } finally {
       setIsLoading(false);

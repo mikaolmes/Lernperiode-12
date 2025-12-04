@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { useRouter, useParams } from 'next/navigation';
 import { pb, Post } from '@/lib/pocketbase';
 import Link from 'next/link';
@@ -16,12 +16,7 @@ export default function PostDetail() {
   const params = useParams();
   const id = params.id as string;
 
-  useEffect(() => {
-    loadPost();
-    loadLikes();
-  }, [id]);
-
-  const loadPost = async () => {
+  const loadPost = useCallback(async () => {
     try {
       const record = await pb.collection('posts').getOne<Post>(id, {
         expand: 'author',
@@ -32,9 +27,9 @@ export default function PostDetail() {
     } catch (error) {
       console.error('Error loading post:', error);
     }
-  };
+  }, [id]);
 
-  const loadLikes = async () => {
+  const loadLikes = useCallback(async () => {
     try {
       // Anzahl Likes
       const likes = await pb.collection('likes').getList(1, 1, {
@@ -53,7 +48,12 @@ export default function PostDetail() {
     } catch (error) {
       console.error('Error loading likes:', error);
     }
-  };
+  }, [id]);
+
+  useEffect(() => {
+    loadPost();
+    loadLikes();
+  }, [loadPost, loadLikes]);
 
   const toggleLike = async () => {
     try {

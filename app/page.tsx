@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import Link from 'next/link';
 import { pb, Post } from '@/lib/pocketbase';
 import { useRouter } from 'next/navigation';
@@ -16,21 +16,32 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
   const router = useRouter();
 
-  useEffect(() => {
-    const checkAuth = async () => {
-      const loggedIn = pb.authStore.isValid;
-      setIsLoggedIn(loggedIn);
-      
-      if (loggedIn) {
-        await loadPosts();
-      }
-      setIsLoading(false);
-    };
-
-    checkAuth();
+  const getPostLikesCount = useCallback(async (postId: string): Promise<number> => {
+    try {
+      const likes = await pb.collection('likes').getList(1, 1, {
+        filter: `post="${postId}"`,
+      });
+      return likes.totalItems;
+    } catch {
+      return 0;
+    }
   }, []);
 
-  const loadPosts = async () => {
+  const hasLikedPost = useCallback(async (postId: string): Promise<boolean> => {
+    try {
+      const userId = pb.authStore.model?.id;
+      if (!userId) return false;
+
+      const likes = await pb.collection('likes').getList(1, 1, {
+        filter: `user="${userId}" && post="${postId}"`,
+      });
+      return likes.items.length > 0;
+    } catch {
+      return false;
+    }
+  }, []);
+
+  const loadPosts = useCallback(async () => {
     try {
       const records = await pb.collection('posts').getList<Post>(1, 50, {
         sort: '-created',
@@ -49,39 +60,29 @@ export default function Home() {
       );
 
       setPosts(postsWithLikes);
-    } catch (error: any) {
+    } catch (error) {
       console.error('Error loading posts:', error);
-      if (error.status === 403 || error.status === 401) {
+      const err = error as { status?: number };
+      if (err.status === 403 || err.status === 401) {
         pb.authStore.clear();
         setIsLoggedIn(false);
       }
     }
-  };
+  }, [getPostLikesCount, hasLikedPost]);
 
-  const getPostLikesCount = async (postId: string): Promise<number> => {
-    try {
-      const likes = await pb.collection('likes').getList(1, 1, {
-        filter: `post="${postId}"`,
-      });
-      return likes.totalItems;
-    } catch {
-      return 0;
-    }
-  };
+  useEffect(() => {
+    const checkAuth = async () => {
+      const loggedIn = pb.authStore.isValid;
+      setIsLoggedIn(loggedIn);
+      
+      if (loggedIn) {
+        await loadPosts();
+      }
+      setIsLoading(false);
+    };
 
-  const hasLikedPost = async (postId: string): Promise<boolean> => {
-    try {
-      const userId = pb.authStore.model?.id;
-      if (!userId) return false;
-
-      const likes = await pb.collection('likes').getList(1, 1, {
-        filter: `user="${userId}" && post="${postId}"`,
-      });
-      return likes.items.length > 0;
-    } catch {
-      return false;
-    }
-  };
+    checkAuth();
+  }, [loadPosts]);
 
   const toggleLike = async (postId: string, e: React.MouseEvent) => {
     e.preventDefault(); // Verhindert Navigation zum Post

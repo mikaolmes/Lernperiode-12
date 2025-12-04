@@ -16,16 +16,6 @@ export default function SettingsPage() {
   const [message, setMessage] = useState('');
   const router = useRouter();
 
-  useEffect(() => {
-    if (!pb.authStore.isValid) {
-      router.push('/auth');
-      return;
-    }
-
-    loadUserData();
-    loadLikedPosts();
-  }, []);
-
   const loadUserData = async () => {
     try {
       const currentUser = pb.authStore.model as unknown as User;
@@ -61,6 +51,16 @@ export default function SettingsPage() {
     }
   };
 
+  useEffect(() => {
+    if (!pb.authStore.isValid) {
+      router.push('/auth');
+      return;
+    }
+
+    loadUserData();
+    loadLikedPosts();
+  }, [router]);
+
   const handleUpdateProfile = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSaving(true);
@@ -78,15 +78,16 @@ export default function SettingsPage() {
       setUser(updatedUser);
       
       // Aktualisiere AuthStore (merge mit vorhandenem model damit collectionId/collectionName erhalten bleiben)
-      const currentModel = pb.authStore.model as Record<string, any> | undefined;
+      const currentModel = pb.authStore.model;
       if (currentModel) {
-        pb.authStore.save(pb.authStore.token, { ...currentModel, ...updatedUser } as any);
+        pb.authStore.save(pb.authStore.token, { ...currentModel, ...updatedUser });
       }
 
       setTimeout(() => setMessage(''), 3000);
-    } catch (error: any) {
+    } catch (error) {
       console.error('Error updating profile:', error);
-      setMessage('Fehler beim Speichern: ' + (error.message || 'Unbekannter Fehler'));
+      const err = error as { message?: string };
+      setMessage('Fehler beim Speichern: ' + (err.message || 'Unbekannter Fehler'));
     } finally {
       setIsSaving(false);
     }
