@@ -74,4 +74,10 @@ Heute habe ich vor dem Unterricht die Login bzw Regristrierung vorgenommen, was 
 - [X] Als Benutzer möchte ich Beiträge erstellen können, damit ich meine Ideen mit anderen Leuten austauschen kann.
 - [X] Als Benutzer möchte ich Beiträge von anderen Benutzern sehen können, damit ich deren Ideen sehen kann und mich mit ihnen darüber Unterhalten kann.
 - [X] Als Benutzer möchte ich Beiträge als "Gefällt mir" makieren, damit die Leute wissen, dass mir die Idee gefällt.
-- [X] Als Benutzer möchte ich einen Einstellungs-Tab haben, wo ich meine "Gelikten" Beiträge sehen kann, oder meinen Namen ändern kann.
+- [X] Als Benutzer möchte ich einen Einstellungs-Tab haben, wo ich meine "Gelikten" Beiträge sehen kann.
+
+## 04.12.2025
+- [ ] Als Benutzer möchte ich in den Einstellungen meinen Namen ändern können, damit ich wenn ich auf eine bessere Idee komme das direkt ändern kann.
+- [ ] Als Benutzer möchte ich einen Beitrag als "Gefällt mir nicht" makieren können, damit mir die App diese Beiträge nicht mehr anzeigt, nach dem wiederladen der Webapp.
+- [ ] Als Benutzer möchte ich eine Zahl sehen wie viele Leute diesen Artikel schon "geliked" haben oder "disliked" haben, damit ich mir eine Meinung bilden kann.
+- [ ] Als Benutzer möchte ich in der Lage sein die Zahl der Likes und Dislikes verstecken zu können, damit niemand ausser mir sieht wie viele den Beitrag mögen oder nicht.
