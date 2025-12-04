@@ -76,11 +76,15 @@ Heute habe ich vor dem Unterricht die Login bzw Regristrierung vorgenommen, was 
 - [X] Als Benutzer möchte ich Beiträge als "Gefällt mir" makieren, damit die Leute wissen, dass mir die Idee gefällt.
 - [X] Als Benutzer möchte ich einen Einstellungs-Tab haben, wo ich meine "Gelikten" Beiträge sehen kann.
 
+Heute habe ich zuerst geschaut, dass ich die Beiträge erstellen kann, danach habe ich auch eine neue Datei erstellt, namens NavBar.tsx, eine Datei die für die Navigation zuständig ist, ich habe diese auch direkt verwendet um den Einstellungs-tab dort unter zu bringen. danach habe ich in meiner Pocketbase Datenbank eine neue Collections namens "Likes" erstellt, und die passenden API Rules eingestellt, also dass man nur eingeloggt Liken kann.
+
 ## 04.12.2025
 - [X] Als Benutzer möchte ich in den Einstellungen meinen Namen ändern können, damit ich wenn ich auf eine bessere Idee komme das direkt ändern kann.
 - [X] Als Benutzer möchte ich einen Beitrag als "Gefällt mir nicht" makieren können, damit mir die App diese Beiträge nicht mehr anzeigt, nach dem wiederladen der Webapp.
 - [X] Als Benutzer möchte ich eine Zahl sehen wie viele Leute diesen Artikel schon "geliked" haben oder "disliked" haben, damit ich mir eine Meinung bilden kann.
 - [X] Als Benutzer möchte ich in der Lage sein die Zahl der Likes und Dislikes verstecken zu können, damit niemand ausser mir sieht wie viele den Beitrag mögen oder nicht.
+
+Heute habe ich in den Einstellungen eingefügt, dass man seinen Benutzernamen eingeben kann, also den Anzeigenamen. Danach habe ich eigentlich dasselbe wie letzte Woche für die Likes, für die Dislikes gemacht. Also wieder eine Collection mit den passenden API Rules. Danach habe ich noch beim erstellen eines Beitrages einen Bool in die Collection "posts" hinzugefügt, damit ich damit dann die Likes und Dislikes verstecken könnte wenn ich das wollte. 
 
 ## 12.12.2025
 - [ ] Als Benutzer möchte ich schönere Fehlermeldungen haben, damit die WebApp ein wenig schöner aussieht.
