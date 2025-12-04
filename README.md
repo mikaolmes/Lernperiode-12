@@ -71,7 +71,7 @@ Heute habe ich mein Projekt erstellt, bedeutet die ersten Dateien erstellt, ich 
 Heute habe ich vor dem Unterricht die Login bzw Regristrierung vorgenommen, was soweit funktioniert, es hat noch ein paar macken, denn es zeigt keine Fehlermeldung an, dass muss ich noch ändern, doch das sollte hoffentlich schnell gehen. Nach dem Call hatte ich ein paar Probleme, doch ich habe herausgefunden, dass ich ausvershen meine Datenbank Instanz gestoppt hatte, ich habe sie also neu angemacht und danach ging es wieder. Die versschiedenen Accounts werden ebenfalls in dieser Datenbank gespeichert. Als nächstes möchte ich Beiträge erstellen können. (84 Wörter)
 
 ## 28.11.2025
-- [ ] Als Benutzer möchte ich Beiträge erstellen können, damit ich meine Ideen mit anderen Leuten austauschen kann.
-- [ ] Als Benutzer möchte ich Beiträge von anderen Benutzern sehen können, damit ich deren Ideen sehen kann und mich mit ihnen darüber Unterhalten kann.
-- [ ] Als Benutzer möchte ich Beiträge als "Gefällt mir" makieren, damit die Leute wissen, dass mir die Idee gefällt.
-- [ ] Als Benutzer möchte ich einen Einstellungs-Tab haben, wo ich meine "Gelikten" Beiträge sehen kann, oder meinen Namen ändern kann.
+- [X] Als Benutzer möchte ich Beiträge erstellen können, damit ich meine Ideen mit anderen Leuten austauschen kann.
+- [X] Als Benutzer möchte ich Beiträge von anderen Benutzern sehen können, damit ich deren Ideen sehen kann und mich mit ihnen darüber Unterhalten kann.
+- [X] Als Benutzer möchte ich Beiträge als "Gefällt mir" makieren, damit die Leute wissen, dass mir die Idee gefällt.
+- [X] Als Benutzer möchte ich einen Einstellungs-Tab haben, wo ich meine "Gelikten" Beiträge sehen kann, oder meinen Namen ändern kann.
