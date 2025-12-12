@@ -86,8 +86,16 @@ Heute habe ich zuerst geschaut, dass ich die Beiträge erstellen kann, danach ha
 
 Heute habe ich in den Einstellungen eingefügt, dass man seinen Benutzernamen eingeben kann, also den Anzeigenamen. Danach habe ich eigentlich dasselbe wie letzte Woche für die Likes, für die Dislikes gemacht. Also wieder eine Collection mit den passenden API Rules. Danach habe ich noch beim erstellen eines Beitrages einen Bool in die Collection "posts" hinzugefügt, damit ich damit dann die Likes und Dislikes verstecken könnte wenn ich das wollte. 
 
-## 12.12.2025
-- [ ] Als Benutzer möchte ich schönere Fehlermeldungen haben, damit die WebApp ein wenig schöner aussieht.
-- [ ] Als Benutzer möchte ich eine Detailansicht für einzelne Beiträge aufrufen können, um den vollständigen Inhalt eines Beitrags zu lesen.
-- [ ] Als angemeldeter Benutzer möchte ich meine eigenen Beiträge über eine Bearbeiten-Schaltfläche aktualisieren können, um Fehler zu korrigieren oder den Inhalt anzupassen.
-- [ ] Als angemeldeter Benutzer möchte ich meine eigenen Beiträge über eine Löschen-Schaltfläche endgültig entfernen können.
+## 19.12.2025
+- [X] Als Benutzer möchte ich schönere Fehlermeldungen haben, damit die WebApp ein wenig schöner aussieht.
+- [X] Als Benutzer möchte ich eine Detailansicht für einzelne Beiträge aufrufen können, um den vollständigen Inhalt eines Beitrags zu lesen.
+- [X] Als angemeldeter Benutzer möchte ich meine eigenen Beiträge über eine Bearbeiten-Schaltfläche aktualisieren können, um Fehler zu korrigieren oder den Inhalt anzupassen.
+- [X] Als angemeldeter Benutzer möchte ich meine eigenen Beiträge über eine Löschen-Schaltfläche endgültig entfernen können.
+
+Heute habe ich an den Fehlermeldungen gearbeitet, ich habe dafür react-hot-toast verwendet, es wurde mir von der KI empfohlen, aber ich bin mir nicht sicher ob es wirklich so viel besser aussieht, denn es ist einfach eine kleinere Fehlermeldung unten rechts in der Ecke, darum wäre es eine Verbesserungsmöglichkeit dies noch zu ändern. Danach habe ich noch eine weitere Schaltfläche hinzugefügt, und zwar kann man jetzt, wenn man auf den Beitrag klickt, kommt man zu einer Detail-Ansicht wo man den Beitrag grösser sieht und auch den Beitrag löschen bzw. bearbeiten kann.
+
+## Mein fertiges Produkt
+
+## Reflexion
+
+// GiF nicht vergessen
