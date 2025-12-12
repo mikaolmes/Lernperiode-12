@@ -88,3 +88,6 @@ Heute habe ich in den Einstellungen eingefügt, dass man seinen Benutzernamen ei
 
 ## 12.12.2025
 - [ ] Als Benutzer möchte ich schönere Fehlermeldungen haben, damit die WebApp ein wenig schöner aussieht.
+- [ ] Als Benutzer möchte ich eine Detailansicht für einzelne Beiträge aufrufen können, um den vollständigen Inhalt eines Beitrags zu lesen.
+- [ ] Als angemeldeter Benutzer möchte ich meine eigenen Beiträge über eine Bearbeiten-Schaltfläche aktualisieren können, um Fehler zu korrigieren oder den Inhalt anzupassen.
+- [ ] Als angemeldeter Benutzer möchte ich meine eigenen Beiträge über eine Löschen-Schaltfläche endgültig entfernen können.
