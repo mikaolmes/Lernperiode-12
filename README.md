@@ -94,7 +94,7 @@ Heute habe ich in den Einstellungen eingefügt, dass man seinen Benutzernamen ei
 
 Heute habe ich an den Fehlermeldungen gearbeitet, ich habe dafür react-hot-toast verwendet, es wurde mir von der KI empfohlen, aber ich bin mir nicht sicher ob es wirklich so viel besser aussieht, denn es ist einfach eine kleinere Fehlermeldung unten rechts in der Ecke, darum wäre es eine Verbesserungsmöglichkeit dies noch zu ändern. Danach habe ich noch eine weitere Schaltfläche hinzugefügt, und zwar kann man jetzt, wenn man auf den Beitrag klickt, kommt man zu einer Detail-Ansicht wo man den Beitrag grösser sieht und auch den Beitrag löschen bzw. bearbeiten kann.
 
-## Mein fertiges Produkt
+# Mein fertiges Produkt
 Am Ende dieser Lernperiode kann ich stolz sagen, dass die Hauptfunktionalitäten alle implementiert wurden. Das Frontend wurde mit Next.js und TypeScript entwickelt und mittels Tailwind CSS gestaltet. Als Backend und Datenbank habe ich Pocketbase verwendet, was eine schnelle und sichere Datenverwaltung ermöglicht.
 
 Funktionen:
@@ -104,16 +104,16 @@ Funktionen:
 - **Privatsphäre und Eintsellungen**: Nutzer können ihren Anzeigenamen ändern und beim erstellen eines Beitrags entscheiden, ob die Like-Zahlen öffentlich sichtabr sein sollen oder versteckt bleiben.
 
 
-## Reflexion
+# Reflexion
 Rückblikend bin ich sehr zu frieden mit dem Verlauf dieses Projekts. Mein Hauptziel, den Umgang mit Next.js, TypeScript und PocketBase zu erlernen, habe ich erreicht.
 
-# Herausforderungen und Lösungswege
+## Herausforderungen und Lösungswege
 Zu Beginn hatte ich einige SChwierigkeiten mit der Konfiguration von PocketBase. Speziell die **API-Rules** (wer darf was sehen oder löschen) waren eine kleine Hürde, die viel zeit gekostet hat. Auch Flüchtigskeitfehler, wie das vergessen die Datenbank zu starten, hat mich kurz verwirrt, aber glücklicherweise konnte ich das schnell beheben und werde es nun nicht mehr so einfach vergessen. Diese Fehler waren jedoch lehrreich, da ich gelernt habe, Fehlermedungen genauer zu analysieren und das Backend besser zu verstehen.
 
-# Technische Umsetzung und Design
+## Technische Umsetzung und Design
 Die Arbeit mit Tailwind CSS ging ugt von der Hand und ich konnte schnell ein sauberes layout erstellen. Gegen Ende habe ich noch react-hot-toast für Fehlermeldungen integriert. Technisch funktioniert es, aber optisch bin ich noch unzufrieden, ob die kleine Meldung in der Ecke auffällig genug ist. Hier sehe ich für die Zukunft noch Verbesserungspotential.
 
-# Fazit
+## Fazit
 Das Projekt hat mir gezeigt, wie wichtig es ist eine saubere Planung (User Stories) zu haben. Features wie das "Verstecken von Likes" oder die "Dislike-Logik" liessen sich nur umsetzten, weil ich das Datenmodell in PocketBase verstanden habe und flexibel angepasst habe. Ich fühle mich nun deutlisch sicherer in der Webentwicklung mit diesem Stack, und würde gerne weitherhin solche Projekte mit diesem Stack machen.
 
 
