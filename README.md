@@ -118,7 +118,7 @@ Das Projekt hat mir gezeigt, wie wichtig es ist eine saubere Planung (User Stori
 
 
 ## GIF
+![GIF](https://github.com/user-attachments/assets/993fb4c8-4143-44db-9a2e-d0647a556104)
 
-https://github.com/user-attachments/assets/66c539d3-06d1-4c6b-8cdc-9f7a8cf642e8
 
 
