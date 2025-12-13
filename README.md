@@ -117,4 +117,4 @@ Die Arbeit mit Tailwind CSS ging ugt von der Hand und ich konnte schnell ein sau
 Das Projekt hat mir gezeigt, wie wichtig es ist eine saubere Planung (User Stories) zu haben. Features wie das "Verstecken von Likes" oder die "Dislike-Logik" liessen sich nur umsetzten, weil ich das Datenmodell in PocketBase verstanden habe und flexibel angepasst habe. Ich fühle mich nun deutlisch sicherer in der Webentwicklung mit diesem Stack, und würde gerne weitherhin solche Projekte mit diesem Stack machen.
 
 
-// GiF nicht vergessen
+## GIF
