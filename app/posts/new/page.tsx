@@ -23,7 +23,7 @@ export default function NewPostPage() {
         title,
         text,
         author: userId,
-        hide_stats: hideStats, // Hier speichern wir die Einstellung
+        hide_stats: hideStats, // Speicherung der Einstellungen
       });
 
       router.push('/');

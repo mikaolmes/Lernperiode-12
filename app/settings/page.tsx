@@ -73,7 +73,6 @@ export default function SettingsPage() {
         </div>
       </div>
 
-      {/* Liked Posts Bereich */}
       <div>
         <h2 className="text-xl font-bold mb-4 text-slate-800">Beiträge, die dir gefallen</h2>
         <div className="space-y-4">

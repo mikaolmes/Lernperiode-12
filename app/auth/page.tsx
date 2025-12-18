@@ -20,13 +20,11 @@ export default function AuthPage() {
 
     try {
       if (isLogin) {
-        // LOGIN
+        // Direkt-Login bei bestehendem Account
         await pb.collection('users').authWithPassword(email, password);
         router.push('/');
       } else {
-        // REGISTRIERUNG
-        
-        // Validierung
+        // Validierung bevor die DB angefragt wird
         if (password !== passwordConfirm) {
           setError('Die Passwörter stimmen nicht überein!');
           setIsLoading(false);
@@ -39,21 +37,20 @@ export default function AuthPage() {
           return;
         }
 
-        // Benutzer erstellen
         await pb.collection('users').create({
           email: email,
           password: password,
           passwordConfirm: passwordConfirm,
         });
 
-        // Automatisch einloggen
+        // Nach Registrierung sofort einloggen für bessere UX
         await pb.collection('users').authWithPassword(email, password);
         router.push('/');
       }
     } catch (err: any) {
       console.error('Auth error:', err);
       
-      // Bessere Fehlermeldungen
+      // Fehler-Mapping für verständliche User-Meldungen
       if (err.status === 400) {
         if (err.data?.data?.email) {
           setError('Diese E-Mail-Adresse wird bereits verwendet!');
@@ -78,7 +75,6 @@ export default function AuthPage() {
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100 p-4">
       <div className="bg-white p-8 rounded-2xl shadow-xl w-full max-w-md">
         
-        {/* Header */}
         <div className="text-center mb-8">
           <h1 className="text-3xl font-bold text-gray-800 mb-2">
             {isLogin ? 'Willkommen zurück!' : 'Account erstellen'}
@@ -88,17 +84,13 @@ export default function AuthPage() {
           </p>
         </div>
 
-        {/* Fehlermeldung */}
         {error && (
           <div className="mb-6 p-4 bg-red-50 border border-red-200 text-red-700 rounded-lg text-sm">
             ⚠️ {error}
           </div>
         )}
 
-        {/* Formular */}
         <form onSubmit={handleSubmit} className="space-y-4">
-          
-          {/* E-Mail */}
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">
               E-Mail
@@ -113,7 +105,6 @@ export default function AuthPage() {
             />
           </div>
 
-          {/* Passwort */}
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">
               Passwort
@@ -134,7 +125,6 @@ export default function AuthPage() {
             )}
           </div>
 
-          {/* Passwort bestätigen (nur Registrierung) */}
           {!isLogin && (
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -152,7 +142,6 @@ export default function AuthPage() {
             </div>
           )}
 
-          {/* Submit Button */}
           <button
             type="submit"
             disabled={isLoading}
@@ -172,7 +161,6 @@ export default function AuthPage() {
           </button>
         </form>
 
-        {/* Toggle */}
         <div className="mt-6 text-center">
           <button
             onClick={() => {

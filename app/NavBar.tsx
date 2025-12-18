@@ -7,16 +7,16 @@ import { useState, useEffect } from 'react';
 
 export default function NavBar() {
   const router = useRouter();
-  // Wir starten mit 'false', damit der Server und Client sich einig sind (verhindert Hydration Error)
+  
+  // Start auf false, um Hydration-Mismatches zwischen Server und Client zu vermeiden
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [username, setUsername] = useState('');
 
   useEffect(() => {
-    // 1. SOFORT beim Laden prüfen (Client-Side)
     setIsLoggedIn(pb.authStore.isValid);
     setUsername(pb.authStore.model?.username || '');
 
-    // 2. Auf Änderungen hören (Login/Logout)
+    // Listener auf den AuthStore, damit die UI sofort auf Login/Logout reagiert
     const unsubscribe = pb.authStore.onChange((token, model) => {
       setIsLoggedIn(pb.authStore.isValid);
       setUsername(model?.username || '');
@@ -28,11 +28,11 @@ export default function NavBar() {
   }, []);
 
   const handleLogout = () => {
-    pb.authStore.clear(); // Löscht den Token
+    pb.authStore.clear();
     setIsLoggedIn(false);
     setUsername('');
-    router.push('/auth'); // Zurück zum Login
-    router.refresh(); // Erzwingt ein Neuladen der Route
+    router.push('/auth');
+    router.refresh();
   };
 
   return (
@@ -43,7 +43,6 @@ export default function NavBar() {
         </Link>
         
         <div className="flex items-center gap-4">
-          {/* Wir prüfen hier explizit auf isLoggedIn */}
           {isLoggedIn ? (
             <>
               <span className="hidden md:block text-slate-500 text-sm">
